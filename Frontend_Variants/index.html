@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founder Copilot</title>
+    <style>
+        body { 
+            background: #030303; 
+            color: rgba(248,246,240,0.5); 
+            font-family: monospace; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+    </style>
+</head>
+<body>
+    <div id="loader">Initializing A/B Environment...</div>
+    <script>
+        // A/B Testing Router
+        // Automatically assigns the user to Variant A or B and remembers it
+        const STORAGE_KEY = 'fc_ab_variant_cookie';
+        let assignedVariant = localStorage.getItem(STORAGE_KEY);
+        
+        // If they haven't been assigned a variant yet, flip a coin
+        if (!assignedVariant) {
+            assignedVariant = Math.random() < 0.5 
+                ? 'founder_copilot_landing_variant_a.html' 
+                : 'founder_copilot_landing_variant_b.html';
+            
+            // Save it so they see the exact same page if they reload
+            localStorage.setItem(STORAGE_KEY, assignedVariant);
+        }
+        
+        // Redirect them instantly to their assigned variant
+        window.location.replace(assignedVariant);
+    </script>
+</body>
+</html>
