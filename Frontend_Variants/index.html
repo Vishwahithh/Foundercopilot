@@ -250,11 +250,11 @@
 
             /* Hero */
             .hero { min-height: 100svh; padding-top: 80px; padding-bottom: 60px; }
-            .hero h1 { font-size: clamp(40px, 12vw, 64px); margin-bottom: 24px; }
-            .hero p { font-size: 17px; margin-bottom: 32px; }
-            .early-access-form { flex-direction: column; gap: 12px; max-width: 100%; }
-            .early-access-form input { width: 100%; padding: 16px 20px; font-size: 16px; height: 56px; }
-            .early-access-form .btn { width: 100%; padding: 16px; text-align: center; justify-content: center; }
+            .hero h1 { font-size: clamp(52px, 13vw, 72px); margin-bottom: 24px; }
+            .hero p { font-size: 17px; margin-bottom: 32px; max-width: 100%; }
+            .early-access-form { flex-wrap: wrap; gap: 10px; max-width: 100%; justify-content: center; }
+            .early-access-form input { flex: 1 1 200px; min-width: 0; padding: 14px 16px; font-size: 15px; height: 52px; }
+            .early-access-form .btn { flex: 0 0 auto; padding: 14px 20px; white-space: nowrap; }
 
             /* Signal artifact */
             .signal-artifact { padding: 32px 20px; margin-top: 0; }
@@ -292,9 +292,9 @@
 
             /* Waitlist price box */
             .price-box { padding: 40px 24px !important; margin: 40px auto 0 !important; }
-            .price-box .early-access-form { flex-direction: column; gap: 12px; max-width: 100% !important; }
-            .price-box .early-access-form input { height: 56px; padding: 16px !important; font-size: 16px !important; }
-            .price-box .early-access-form .btn { width: 100%; padding: 16px 24px !important; justify-content: center; }
+            .price-box .early-access-form { flex-wrap: wrap; gap: 10px; max-width: 100% !important; justify-content: center; }
+            .price-box .early-access-form input { flex: 1 1 180px; height: 52px; padding: 14px 16px !important; font-size: 15px !important; min-width: 0; }
+            .price-box .early-access-form .btn { flex: 0 0 auto; padding: 14px 20px !important; white-space: nowrap; }
 
             /* Footer */
             footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px var(--gutter); }
@@ -307,12 +307,11 @@
         /* ===== RESPONSIVE: SMALL PHONES (480px) ===== */
         @media (max-width: 480px) {
             :root { --gutter: 16px; }
-            .hero h1 { font-size: clamp(34px, 11vw, 52px); }
+            .hero h1 { font-size: clamp(44px, 13vw, 60px); }
             .hero p { font-size: 16px; }
             .center-large h2 { font-size: clamp(28px, 10vw, 44px); }
             .stack-card .big-text { font-size: 24px; }
             .mech-card h3 { font-size: 22px; }
-            .btn { font-size: 12px; padding: 14px 28px; }
         }
     </style>
 </head>
