@@ -270,7 +270,7 @@
                     <span class="line"><span class="word" style="animation-delay:0.4s"><em style="color:var(--lime)">gets signups.</em></span></span>
                 </h1>
                 <p>Stop hoarding transcripts. Feed your demos into a GTM copilot that extracts real pain language and deploys it as channel-native experiments.</p>
-                <form class="early-access-form" onsubmit="event.preventDefault(); this.innerHTML='<div style=\'padding:15px; border:1px solid var(--lime); color:var(--lime); width:100%; font-family:var(--mono); background:rgba(0,0,0,0.6);\'>[SYS] Email logged. Access pending.</div>';">
+                <form class="early-access-form" onsubmit="handleWaitlistSubmit(event, this, 'var(--lime)')">
                     <input type="email" placeholder="founder@startup.com" required aria-label="Email Address">
                     <button type="submit" class="btn" data-magnetic>Request Access_</button>
                 </form>
@@ -317,7 +317,7 @@
                     <h3>Bear the bottleneck.</h3>
                     <p>The manual flow of turning a single 45-minute discovery call into a usable piece of content takes 3 hours of context-switching.</p>
                     <p style="color:rgba(248,246,240,0.6); max-width:500px; margin: 0 auto 40px; font-weight:300;">Early access is rolling out in cohorts. Join the waitlist to secure your spot.</p>
-        <form class="early-access-form" onsubmit="event.preventDefault(); this.innerHTML='<div style=\'padding:15px; border:1px solid var(--lime); color:var(--lime); width:100%; font-family:var(--mono); background:rgba(0,0,0,0.6);\'>[SYS] Email logged. Access pending.</div>';" style="opacity:1; animation:none;">
+        <form class="early-access-form" onsubmit="handleWaitlistSubmit(event, this, 'var(--lime)')" style="opacity:1; animation:none;">
             <input type="email" placeholder="founder@startup.com" required aria-label="Email Address">
             <button type="submit" class="btn" data-magnetic>Request Access_</button>
         </form>
@@ -476,6 +476,46 @@ if (window.matchMedia("(pointer: fine)").matches) {
         });
     });
 }
+</script>
+
+<!-- Supabase Integration -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+    const supabaseUrl = 'https://eeyczwxbuxxrkofavyfp.supabase.co';
+    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVleWN6d3hidXh4cmtvZmF2eWZwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjgzMzIsImV4cCI6MjA5MDY0NDMzMn0.hIN1Szc7kaS3i-S-cv8A4Vpid2vuarchFRoUJkmUC4c';
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+    async function handleWaitlistSubmit(event, formElement, highlightColor) {
+        event.preventDefault();
+        const input = formElement.querySelector('input[type="email"]');
+        const email = input.value;
+        const submitBtn = formElement.querySelector('button[type="submit"]');
+
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = 'PROCESSING...';
+        submitBtn.disabled = true;
+
+        try {
+            const { error } = await supabase
+                .from('waitlist')
+                .insert([{ email }]);
+                
+            if (error) {
+                if (error.code === '23505') {
+                    formElement.innerHTML = `<div style="padding:15px; border:1px solid ${highlightColor}; color:${highlightColor}; width:100%; font-family:var(--mono); background:rgba(0,0,0,0.6);">[SYS] Email already on waitlist.</div>`;
+                } else {
+                    throw error;
+                }
+            } else {
+                formElement.innerHTML = `<div style="padding:15px; border:1px solid ${highlightColor}; color:${highlightColor}; width:100%; font-family:var(--mono); background:rgba(0,0,0,0.6);">[SYS] Email logged. Access pending.</div>`;
+            }
+        } catch (error) {
+            console.error('Waitlist Error:', error.message);
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+            alert("Database Error: " + error.message);
+        }
+    }
 </script>
 
 </body>
