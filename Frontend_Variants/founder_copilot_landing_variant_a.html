@@ -483,7 +483,7 @@ if (window.matchMedia("(pointer: fine)").matches) {
 <script>
     const supabaseUrl = 'https://eeyczwxbuxxrkofavyfp.supabase.co';
     const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVleWN6d3hidXh4cmtvZmF2eWZwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjgzMzIsImV4cCI6MjA5MDY0NDMzMn0.hIN1Szc7kaS3i-S-cv8A4Vpid2vuarchFRoUJkmUC4c';
-    const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+    const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
 
     async function handleWaitlistSubmit(event, formElement, highlightColor) {
         event.preventDefault();
@@ -496,7 +496,7 @@ if (window.matchMedia("(pointer: fine)").matches) {
         submitBtn.disabled = true;
 
         try {
-            const { error } = await supabase
+            const { error } = await supabaseClient
                 .from('waitlist')
                 .insert([{ email }]);
                 
