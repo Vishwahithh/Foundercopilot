@@ -227,12 +227,92 @@
         .reveal.visible { opacity: 1; transform: translateY(0); }
         @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
+        /* ===== RESPONSIVE: TABLET (1024px) ===== */
         @media (max-width: 1024px) {
-            .hero-grid, .artifact-grid, .sticky-compare, .grid-3, .test-grid { grid-template-columns: 1fr; gap: 40px; }
+            :root { --gutter: 32px; }
+            .artifact-grid, .sticky-compare, .grid-3, .test-grid { grid-template-columns: 1fr; gap: 40px; }
             .hero h1 { font-size: clamp(48px, 10vw, 80px); }
             .sticky-left { position: static; }
             .stack-card { position: static; margin-bottom: 20px; }
+            .mech-card { padding: 60px 40px; }
+            .sec { padding: 120px 0; }
+            .glow-orb { opacity: 0.08; }
+        }
+
+        /* ===== RESPONSIVE: MOBILE (768px) ===== */
+        @media (max-width: 768px) {
+            :root { --gutter: 20px; }
+
+            /* Nav */
+            nav { padding: 16px var(--gutter); }
+            .nav-r a:not(.btn) { display: none; } /* hide Log_In link on mobile */
+            .btn-ghost { padding: 10px 18px; font-size: 11px; }
+
+            /* Hero */
+            .hero { min-height: 100svh; padding-top: 80px; padding-bottom: 60px; }
+            .hero h1 { font-size: clamp(40px, 12vw, 64px); margin-bottom: 24px; }
+            .hero p { font-size: 17px; margin-bottom: 32px; }
+            .early-access-form { flex-direction: column; gap: 12px; max-width: 100%; }
+            .early-access-form input { width: 100%; padding: 16px 20px; font-size: 16px; height: 56px; }
+            .early-access-form .btn { width: 100%; padding: 16px; text-align: center; justify-content: center; }
+
+            /* Signal artifact */
+            .signal-artifact { padding: 32px 20px; margin-top: 0; }
+            .artifact-grid { grid-template-columns: 1fr; gap: 32px; }
+            .transcript-block { font-size: 16px; }
+
+            /* Marquee */
+            .marquee-section { padding: 28px 0; margin-top: 60px; }
+            .marquee-item { font-size: 22px; padding: 8px 20px; }
+
+            /* Sections */
+            .sec { padding: 80px 0; }
+            .center-large h2 { font-size: clamp(32px, 9vw, 56px); margin-bottom: 20px; }
+            .center-large p { font-size: 17px; }
+
+            /* Sticky cards → static list */
+            .sticky-compare { grid-template-columns: 1fr; gap: 40px; }
+            .sticky-left { position: static; }
+            .sticky-left h3 { font-size: 28px; }
+            .sticky-left p { font-size: 17px; }
+            .stacked-cards-container { padding-bottom: 0; margin-top: 0; }
+            .stack-card { position: static !important; margin-bottom: 16px; padding: 28px 24px; }
+            .stack-card .big-text { font-size: 28px; }
+
+            /* Output grid */
+            .grid-3 { grid-template-columns: 1fr; }
+            .mech-card { padding: 40px 28px; }
+            .mech-card h3 { font-size: 26px; }
+            .mech-card p { font-size: 16px; }
+
+            /* Testimonial / transformation cards */
+            .test-grid { grid-template-columns: 1fr; gap: 24px; margin-top: 40px; }
+            .test-card { padding: 28px 24px; }
+            .test-card blockquote { font-size: 20px; margin-bottom: 24px; }
+
+            /* Waitlist price box */
+            .price-box { padding: 40px 24px !important; margin: 40px auto 0 !important; }
+            .price-box .early-access-form { flex-direction: column; gap: 12px; max-width: 100% !important; }
+            .price-box .early-access-form input { height: 56px; padding: 16px !important; font-size: 16px !important; }
+            .price-box .early-access-form .btn { width: 100%; padding: 16px 24px !important; justify-content: center; }
+
+            /* Footer */
+            footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px var(--gutter); }
+            footer span { max-width: 100%; }
+
+            /* Glow orbs */
             .glow-orb { display: none; }
+        }
+
+        /* ===== RESPONSIVE: SMALL PHONES (480px) ===== */
+        @media (max-width: 480px) {
+            :root { --gutter: 16px; }
+            .hero h1 { font-size: clamp(34px, 11vw, 52px); }
+            .hero p { font-size: 16px; }
+            .center-large h2 { font-size: clamp(28px, 10vw, 44px); }
+            .stack-card .big-text { font-size: 24px; }
+            .mech-card h3 { font-size: 22px; }
+            .btn { font-size: 12px; padding: 14px 28px; }
         }
     </style>
 </head>
