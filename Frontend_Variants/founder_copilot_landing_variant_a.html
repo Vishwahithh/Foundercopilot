@@ -115,7 +115,9 @@
         @keyframes revealUp { to { transform: translateY(0); opacity: 1; } }
 
         .hero p { font-size: 22px; font-weight: 300; margin: 0 auto 48px; line-height: 1.5; color: rgba(248,246,240,0.7); animation: fadeIn 1s 0.6s forwards; opacity: 0; max-width: 700px; text-align: center; text-shadow: 0 2px 20px rgba(0,0,0,1); }
-        .hero .btn { animation: fadeIn 1s 0.8s forwards; opacity: 0; }
+        .early-access-form { display: flex; gap: 10px; max-width: 500px; margin: 0 auto; animation: fadeIn 1s 0.8s forwards; opacity: 0; }
+        .early-access-form input { flex: 1; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.2); padding: 0 20px; color: #F5F1E8; font-family: var(--mono); font-size: 14px; outline: none; transition: all 0.3s ease; backdrop-filter: blur(5px); }
+        .early-access-form input:focus { border-color: var(--lime); box-shadow: 0 0 15px rgba(212,255,71,0.2); }
         @keyframes fadeIn { to { opacity: 1; } }
 
         /* ===== INTERACTIVE ARTIFACT (Hover triggers outputs) ===== */
@@ -268,7 +270,10 @@
                     <span class="line"><span class="word" style="animation-delay:0.4s"><em style="color:var(--lime)">gets signups.</em></span></span>
                 </h1>
                 <p>Stop hoarding transcripts. Feed your demos into a GTM copilot that extracts real pain language and deploys it as channel-native experiments.</p>
-                <a href="#pricing" class="btn" aria-label="Start turning your workflow into distribution" data-magnetic>Turn Workflow Into Distribution</a>
+                <form class="early-access-form" onsubmit="event.preventDefault(); this.innerHTML='<div style=\'padding:15px; border:1px solid var(--lime); color:var(--lime); width:100%; font-family:var(--mono); background:rgba(0,0,0,0.6);\'>[SYS] Email logged. Access pending.</div>';">
+                    <input type="email" placeholder="founder@startup.com" required aria-label="Email Address">
+                    <button type="submit" class="btn" data-magnetic>Request Access_</button>
+                </form>
             </div>
         </div>
     </header>
@@ -311,7 +316,11 @@
                     <div class="mono" style="color:var(--hot);margin-bottom:20px;">The Old Way</div>
                     <h3>Bear the bottleneck.</h3>
                     <p>The manual flow of turning a single 45-minute discovery call into a usable piece of content takes 3 hours of context-switching.</p>
-                    <p style="color:rgba(255,255,255,0.3);">Scroll to see the alternative ↓</p>
+                    <p style="color:rgba(248,246,240,0.6); max-width:500px; margin: 0 auto 40px; font-weight:300;">Early access is rolling out in cohorts. Join the waitlist to secure your spot.</p>
+        <form class="early-access-form" onsubmit="event.preventDefault(); this.innerHTML='<div style=\'padding:15px; border:1px solid var(--lime); color:var(--lime); width:100%; font-family:var(--mono); background:rgba(0,0,0,0.6);\'>[SYS] Email logged. Access pending.</div>';" style="opacity:1; animation:none;">
+            <input type="email" placeholder="founder@startup.com" required aria-label="Email Address">
+            <button type="submit" class="btn" data-magnetic>Request Access_</button>
+        </form>
                 </div>
                 
                 <div class="stacked-cards-container">
