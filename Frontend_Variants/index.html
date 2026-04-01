@@ -79,8 +79,8 @@
         .logo { font-family: var(--sans); filter: drop-shadow(0 0 5px rgba(255,255,255,0.2)); font-size: 13px; font-weight: 700; color: var(--bone); text-decoration: none; display: flex; align-items: center; gap: 12px; text-transform: uppercase; letter-spacing: 0.1em; }
         .logo::before { content: ''; width: 12px; height: 12px; background: var(--lime); box-shadow: 0 0 10px var(--lime); }
         .nav-r { display: flex; align-items: center; gap: 16px; }
-        .nav-r a { font-family: var(--sans); font-weight: 600; letter-spacing: 0.1em; font-size: 11px; color: var(--dust); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
-        .nav-r a:hover { color: var(--bone); }
+        .nav-r a:not(.btn) { font-family: var(--sans); font-weight: 600; letter-spacing: 0.1em; font-size: 11px; color: var(--dust); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+        .nav-r a:not(.btn):hover { color: var(--bone); }
 
         /* ===== BUTTONS (Magnetic / Neon) ===== */
         .btn {
@@ -105,18 +105,18 @@
         .hero-bg-video video { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: screen; filter: brightness(1.2); }
         .hero-bg-overlay { position: absolute; inset: 0; background: radial-gradient(circle at center, transparent 0%, rgba(3,3,3,0.8) 100%); z-index: 1; pointer-events: none; }
         
-        .hero-text { position: relative; z-index: 10; max-width: 900px; margin: 0 auto; text-align: center; }
+        .hero-text { position: relative; z-index: 10; max-width: 1000px; text-align: left; }
         
         /* Staggered Text Reveal */
-        .hero h1 { font-size: clamp(48px, 8vw, 90px); letter-spacing: -0.03em; margin-bottom: 32px; text-align: center; text-shadow: 0 4px 60px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,1); }
+        .hero h1 { font-size: clamp(72px, 10vw, 130px); letter-spacing: -0.03em; margin-bottom: 32px; text-align: left; text-shadow: 0 4px 60px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,1); }
         .hero h1 span.line { display: block; overflow: hidden; padding: 0.15em 0; margin-top: -0.15em; margin-bottom: -0.15em; }
         .hero h1 span.word { display: inline-block; transform: translateY(100%); opacity: 0; animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .hero h1 em { color: var(--lime); font-style: italic; }
         @keyframes revealUp { to { transform: translateY(0); opacity: 1; } }
 
-        .hero p { font-size: 20px; font-weight: 400; margin: 0 auto 48px; line-height: 1.5; color: rgba(248,246,240,0.7); animation: fadeIn 1s 0.6s forwards; opacity: 0; max-width: 700px; text-align: center; text-shadow: 0 2px 20px rgba(0,0,0,1); }
-        .early-access-form { display: flex; gap: 10px; max-width: 500px; margin: 0 auto; animation: fadeIn 1s 0.8s forwards; opacity: 0; }
-        .early-access-form input { flex: 1; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.2); padding: 0 20px; color: #F5F1E8; font-family: var(--sans); font-weight: 500; font-size: 15px; outline: none; transition: all 0.3s ease; backdrop-filter: blur(5px); }
+        .hero p { font-size: 24px; font-weight: 400; margin: 0 0 48px 0; line-height: 1.5; color: rgba(248,246,240,0.8); animation: fadeIn 1s 0.6s forwards; opacity: 0; max-width: 700px; text-align: left; text-shadow: 0 2px 20px rgba(0,0,0,1); }
+        .early-access-form { display: flex; gap: 10px; max-width: 500px; margin: 0; animation: fadeIn 1s 0.8s forwards; opacity: 0; }
+        .early-access-form input { flex: 1; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.2); padding: 0 20px; color: #F5F1E8; font-family: var(--sans); font-weight: 500; font-size: 16px; outline: none; transition: all 0.3s ease; backdrop-filter: blur(5px); }
         .early-access-form input:focus { border-color: var(--lime); box-shadow: 0 0 15px rgba(212,255,71,0.2); }
         @keyframes fadeIn { to { opacity: 1; } }
 
@@ -168,9 +168,9 @@
 
         /* ===== SECTIONS ===== */
         .sec { padding: 160px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
-        .center-large { text-align: center; max-width: 900px; margin: 0 auto; }
+        .center-large { text-align: left; max-width: 900px; margin: 0; }
         .center-large h2 { font-size: clamp(48px, 8vw, 90px); margin-bottom: 30px; letter-spacing: -0.03em; line-height: 1.05; }
-        .center-large p { font-size: 20px; font-weight: 400; margin: 0 auto; line-height: 1.6; color: rgba(255,255,255,0.6); }
+        .center-large p { font-size: 24px; font-weight: 400; margin: 0; line-height: 1.6; color: rgba(255,255,255,0.6); }
 
         /* ===== STICKY SCROLL "BEFORE / AFTER" CARDS ===== */
         .sticky-compare { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
@@ -181,14 +181,14 @@
         .stacked-cards-container { display: flex; flex-direction: column; padding-bottom: 100px; margin-top: 40px; }
         .stack-card { 
             background: #0A0A0B; border: 1px solid rgba(255,255,255,0.1); 
-            padding: 40px; border-radius: 8px; margin-bottom: -60px; /* Overlap them initially */
+            padding: 40px; border-radius: 8px; margin-bottom: 20px; 
             box-shadow: 0 -20px 40px rgba(0,0,0,0.5);
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s;
-            position: sticky; top: 220px; /* They stick and layer */
+            position: sticky; top: 120px; /* They stick and layer */
         }
         .stack-card:nth-child(1) { top: 120px; z-index: 10; border-top-color: var(--hot); }
-        .stack-card:nth-child(2) { top: 160px; z-index: 11; background: #0F0F11; border-top-color: var(--violet); }
-        .stack-card:nth-child(3) { top: 200px; z-index: 12; background: #151518; border-top-color: var(--lime); }
+        .stack-card:nth-child(2) { top: 200px; z-index: 11; background: #0F0F11; border-top-color: var(--violet); }
+        .stack-card:nth-child(3) { top: 280px; z-index: 12; background: #151518; border-top-color: var(--lime); }
         
         .stack-card h4 { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: var(--dust); margin-bottom: 16px; text-transform: uppercase; }
         .stack-card .big-text { font-family: var(--serif); font-size: 40px; color: var(--bone); line-height: 1.1; margin-bottom: 16px; }
@@ -261,7 +261,7 @@
             <div class="hero-bg-overlay"></div>
         </div>
 
-        <div class="container" style="height:100%;width:100%;display:flex;align-items:center;justify-content:center;">
+        <div class="container" style="height:100%;width:100%;display:flex;align-items:center;justify-content:flex-start;">
             <div class="hero-text">
                 <h1>
                     <span class="line"><span class="word" style="animation-delay:0.1s">Stop</span> <span class="word" style="animation-delay:0.15s">guessing</span></span>
@@ -272,7 +272,7 @@
                     <input type="email" placeholder="founder@startup.com" required aria-label="Email Address">
                     <button type="submit" class="btn" data-magnetic>Request access_</button>
                 </form>
-                <div style="margin-top:24px; display:flex; gap:16px; justify-content:center;">
+                <div style="margin-top:32px; display:flex; gap:24px; justify-content:flex-start; align-items:center;">
                     <a href="#marquee" class="mono" style="color:var(--dust); text-decoration:none; display:inline-block; border-bottom:1px solid rgba(255,255,255,0.2); padding-bottom:4px; transition:color 0.2s;" onmouseover="this.style.color='var(--lime)';" onmouseout="this.style.color='var(--dust)';">See how it works →</a>
                 </div>
             </div>
@@ -343,7 +343,7 @@
 
     <!-- EXACT OUTPUTS SECTION -->
     <section style="border-bottom:1px solid rgba(255,255,255,0.03); padding-top:100px;">
-        <div class="container center-large reveal" style="margin-bottom:80px; text-align:center;">
+        <div class="container center-large reveal" style="margin-bottom:80px;">
             <div class="mono" style="color:var(--lime);margin-bottom:20px;">Execution Output</div>
             <h2 style="font-size:clamp(32px, 5vw, 60px);">Turn one founder input into:</h2>
         </div>
@@ -406,10 +406,10 @@
                 <h2>Get early access.</h2>
                 <p>Early access is rolling out in cohorts. Join the waitlist to test Founder Copilot before the full launch.</p>
             </div>
-            <div class="price-box reveal" style="padding: 60px;">
-                <div class="mono" style="color:var(--lime);margin-bottom:24px;">Built for early-stage founders who already have the signal — and need help shipping it.</div>
-                <form class="early-access-form" style="max-width:100%; margin-top:30px;" onsubmit="handleWaitlistSubmit(event, this, 'var(--lime)')">
-                    <input type="email" placeholder="Enter your email" required aria-label="Email Address" style="padding: 20px; font-size: 18px;">
+            <div class="price-box reveal" style="padding: 60px; text-align:left; margin:80px 0 0 0;">
+                <div class="mono" style="color:var(--lime);margin-bottom:24px; line-height:1.6;">Built for early-stage founders who already have the signal — and need help shipping it.</div>
+                <form class="early-access-form" style="max-width:100%; margin-top:30px; display:flex; gap:10px;" onsubmit="handleWaitlistSubmit(event, this, 'var(--lime)')">
+                    <input type="email" placeholder="Enter your email" required aria-label="Email Address" style="padding: 20px; font-size: 18px; flex:1;">
                     <button type="submit" class="btn" data-magnetic style="padding: 20px 40px;">Join Waitlist_</button>
                 </form>
             </div>
