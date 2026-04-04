@@ -1,0 +1,31 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "routes": [
+    {
+      "src": "/founder_copilot_landing_variant_a.html",
+      "status": 404,
+      "dest": "/404"
+    },
+    {
+      "src": "/founder_copilot_landing_variant_b.html",
+      "status": 404,
+      "dest": "/404"
+    },
+    {
+      "src": "/deploy_output.txt",
+      "status": 404,
+      "dest": "/404"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}

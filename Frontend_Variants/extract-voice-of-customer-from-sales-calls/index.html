@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030303">
+    <meta name="description" content="Learn how to pull pains, objections, outcome language, and repeat phrases from sales calls so you can improve messaging and positioning.">
+    <title>How to Extract Voice of Customer From Sales Calls</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/favicon.png">
+    <!-- Canonical -->
+    <link rel="canonical" href="https://foundercopilot.co/extract-voice-of-customer-from-sales-calls/">
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Extract Voice of Customer From Sales Calls",
+      "description": "Learn how to pull pains, objections, outcome language, and repeat phrases from sales calls so you can improve messaging and positioning.",
+      "author": {"@type": "Organization", "name": "Founder Copilot"},
+      "publisher": {"@type": "Organization", "name": "Founder Copilot"}
+    }
+    </script>
+    <style>
+        :root {
+            --bg:     #030303;
+            --bg2:    #0D0D0E;
+            --bone:   #F8F6F0;
+            --dust:   #9C978D;
+            --lime:   #D4FF47;
+            --hot:    #FF4A22;
+            --violet: #9D6BFF;
+            --cyan:   #2EF2FF;
+            --dim:    rgba(168,162,154,0.1);
+            --serif:  'Instrument Serif', serif;
+            --sans:   'Inter', -apple-system, sans-serif;
+            --grid:   800px;
+            --gutter: 40px;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { color-scheme: dark; scroll-behavior: smooth; }
+        body {
+            background: var(--bg); color: var(--bone);
+            font-family: var(--sans); font-size: 18px; line-height: 1.6;
+            overflow-x: hidden; -webkit-font-smoothing: antialiased;
+        }
+        body::after {
+            content: ''; position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.04; mix-blend-mode: overlay; pointer-events: none; z-index: 9999;
+        }
+        .glow-orb { position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.12; z-index: 0; pointer-events: none; animation: breathe 8s infinite alternate ease-in-out; }
+        .glow-1 { top: -10vh; right: -10vw; width: 60vw; height: 60vh; background: var(--lime); }
+        .glow-2 { top: 60vh; left: -20vw; width: 50vw; height: 50vh; background: var(--violet); animation-delay: -4s; opacity: 0.08; }
+        @keyframes breathe { 0% { transform: scale(1); } 100% { transform: scale(1.2) translate(-20px,20px); } }
+        ::selection { background: var(--lime); color: var(--bg); }
+        *:focus-visible { outline: 2px solid var(--lime); outline-offset: 4px; }
+        .container { max-width: var(--grid); margin: 0 auto; padding: 0 var(--gutter); position: relative; z-index: 10; }
+        .mono { font-family: var(--sans); font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 0.1em; }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 20px var(--gutter);
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(3,3,3,0.7); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .logo { font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--bone); text-decoration: none; display: flex; align-items: center; gap: 12px; text-transform: uppercase; letter-spacing: 0.1em; }
+        .logo::before { content: ''; width: 12px; height: 12px; background: var(--lime); box-shadow: 0 0 10px var(--lime); flex-shrink: 0; }
+        .nav-r { display: flex; align-items: center; gap: 16px; }
+        .btn {
+            position: relative; display: inline-flex; align-items: center; justify-content: center;
+            font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.1em;
+            padding: 16px 32px; text-decoration: none; text-transform: uppercase;
+            background: var(--lime); color: var(--bg); border: none; cursor: pointer;
+            transition: background 0.3s, color 0.3s, transform 0.2s; overflow: hidden; z-index: 1;
+        }
+        .btn::before { content: ''; position: absolute; inset: 0; background: var(--bone); transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.85,0,0.15,1); z-index: -1; }
+        .btn:hover { color: var(--bg); transform: scale(1.02); }
+        .btn:hover::before { transform: translateY(0); }
+        .btn-ghost { background: transparent; color: var(--bone); border: 1px solid rgba(255,255,255,0.2); padding: 10px 22px; }
+        .btn-ghost::before { background: var(--bone); }
+        .btn-ghost:hover { color: var(--bg); border-color: transparent; }
+        /* Article layout */
+        .article-wrap { padding: 140px 0 100px; }
+        .breadcrumb { margin-bottom: 32px; }
+        .breadcrumb a { color: var(--dust); text-decoration: none; font-size: 13px; font-family: var(--sans); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 2px; transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--lime); }
+        .article-h1 { font-family: var(--serif); font-size: clamp(36px, 5vw, 58px); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 48px; }
+        /* Content styles */
+        .seo-content h2 { font-family: var(--serif); font-size: clamp(28px, 4vw, 40px); font-weight: 400; margin: 72px 0 20px; color: var(--bone); line-height: 1.15; letter-spacing: -0.01em; }
+        .seo-content h3 { font-family: var(--serif); font-size: clamp(22px, 3vw, 30px); font-weight: 400; margin: 52px 0 18px; color: var(--bone); line-height: 1.2; }
+        .seo-content p { font-size: 19px; line-height: 1.75; margin-bottom: 24px; color: rgba(248,246,240,0.85); max-width: 100%; }
+        .seo-content ul, .seo-content ol { margin: 0 0 32px 0; padding: 0; list-style: none; }
+        .seo-content li { position: relative; padding-left: 28px; margin-bottom: 14px; font-size: 19px; line-height: 1.65; color: rgba(248,246,240,0.85); }
+        .seo-content ul li::before { content: '→'; color: var(--lime); position: absolute; left: 0; font-weight: 600; }
+        .seo-content ol { counter-reset: ol-counter; }
+        .seo-content ol li { counter-increment: ol-counter; }
+        .seo-content ol li::before { content: counter(ol-counter) "."; color: var(--lime); position: absolute; left: 0; font-weight: 600; font-family: var(--sans); font-size: 15px; }
+        .seo-content strong { color: var(--bone); font-weight: 600; }
+        .seo-content em { font-style: italic; }
+        .seo-content a { color: var(--lime); text-decoration: none; border-bottom: 1px solid rgba(212,255,71,0.3); transition: all 0.2s; }
+        .seo-content a:hover { border-bottom-color: var(--lime); }
+        .seo-content code { background: rgba(255,255,255,0.06); padding: 2px 8px; border-radius: 3px; font-size: 0.9em; }
+        /* CTA box */
+        .cta-box { margin-top: 80px; padding: 48px 56px; border: 1px solid rgba(212,255,71,0.2); background: rgba(212,255,71,0.03); text-align: center; border-radius: 4px; }
+        .cta-box h3 { font-family: var(--serif); font-size: 32px; font-weight: 400; margin-bottom: 16px; }
+        .cta-box p { font-size: 18px; color: var(--dust); margin: 0 auto 32px; max-width: 480px; }
+        /* Footer */
+        footer { padding: 40px var(--gutter); display: flex; justify-content: space-between; align-items: center; font-family: var(--sans); font-weight: 600; font-size: 11px; color: var(--dust); text-transform: uppercase; letter-spacing: 0.1em; border-top: 1px solid rgba(255,255,255,0.05); background: var(--bg2); }
+        footer a { color: inherit; text-decoration: none; margin-left: 24px; }
+        /* Mobile */
+        @media (max-width: 768px) {
+            :root { --gutter: 20px; }
+            nav { padding: 16px var(--gutter); }
+            .article-wrap { padding: 100px 0 60px; }
+            .cta-box { padding: 32px 24px; }
+            footer { flex-direction: column; gap: 20px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<div class="glow-orb glow-1"></div>
+<div class="glow-orb glow-2"></div>
+
+<a href="#main" class="mono" style="position:absolute;top:-100px;left:0;background:var(--lime);color:var(--bg);padding:8px 16px;z-index:9999;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Skip to Content</a>
+
+<nav aria-label="Main navigation">
+    <a href="../" class="logo" aria-label="Founder Copilot homepage">Founder Copilot</a>
+    <div class="nav-r">
+        <a href="../#pricing" class="btn btn-ghost">Request access</a>
+    </div>
+</nav>
+
+<main id="main">
+    <article class="article-wrap">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../">Home</a>
+            </nav>
+            <h1 class="article-h1">How to Extract Voice of Customer From Sales Calls</h1>
+            <div class="seo-content">
+                <h3>What "voice of customer" really means</h3>
+                
+                <p>Voice of customer (VoC) is not just survey scores; it is the specific way customers describe their pains, desires, and decisions in their own words. Sales and support calls are now recognized as one of the richest VoC sources because they capture real-time questions, hesitations, and comparisons.</p>
+                
+                <h3>What to tag in transcripts</h3>
+                
+                <p>Best-practice guides for call transcription suggest tagging:</p>
+                <ul>
+                <li>pain statements ("I'm tired of rewriting this every week").</li>
+                <li>desired outcomes ("I just want one message the whole team can use").</li>
+                <li>objections ("we're too early for this," "this feels like another AI toy").</li>
+                <li>alternatives ("right now we just dump everything into Notion and hope someone reads it").</li>
+                <li>emotional spikes (moments where their tone or emphasis changes).</li>
+                </ul>
+                
+                <p>These tags become the raw material for messaging, content, and objection-handling later.</p>
+                
+                <h3>How many calls you need before patterns appear</h3>
+                
+                <p>You do not need hundreds of calls; in B2B SaaS, patterns often emerge after 10-20 good conversations if they are from a reasonably consistent segment. The value comes less from volume and more from structured analysis of a representative sample.</p>
+                
+                <h3>How to use VoC in messaging and content</h3>
+                
+                <p>Once you have tagged VoC data, you can:</p>
+                <ul>
+                <li>rewrite your homepage and decks around the top 2-3 pains and outcomes.</li>
+                <li>create content pillars based on the most repeated themes.</li>
+                <li>plug the phrases directly into ads, outbound, and founder content.</li>
+                </ul>
+                
+                <p>LLM-based tools are increasingly used to accelerate this pattern-finding step by clustering phrases and summarizing top pains and motivators from transcripts.</p>
+                
+                <p>Founder Copilot's role is to add structure and speed to that process for founders who do not have an insights team but sit closest to the calls.</p>
+                
+                <h3>Related Reading</h3>
+                
+                <ul>
+                <li><a href="../turn-customer-calls-into-messaging/">How to Turn Customer Calls Into Messaging</a></li>
+                <li><a href="../build-messaging-from-user-interviews/">Build Messaging From User Interviews</a></li>
+                <li><a href="../message-market-fit/">Message-Market Fit: The Full Operating System</a></li>
+                </ul>
+            </div>
+            <div class="cta-box">
+                <h3>Ready to turn calls into traction?</h3>
+                <p>Founder Copilot extracts the customer language from your calls and turns it into messaging, posts, and GTM tests you can actually execute.</p>
+                <a href="../#pricing" class="btn">Join the Waitlist_</a>
+            </div>
+        </div>
+    </article>
+</main>
+
+<footer>
+    <span style="max-width:400px;line-height:1.6;">Founder Copilot &mdash; Workflow-powered distribution for founders.</span>
+    <div>
+        <a href="../">Home</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030303">
+    <meta name="description" content="Learn what message-market fit is, how it differs from product-market fit, and how founders can use customer calls, interviews, and distribution signals to find traction.">
+    <title>Message-Market Fit: The Missing Layer in 0→1 Growth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/favicon.png">
+    <!-- Canonical -->
+    <link rel="canonical" href="https://foundercopilot.co/message-market-fit/">
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Message-Market Fit: The Founder's 0→1 Operating System",
+      "description": "Learn what message-market fit is, how it differs from product-market fit, and how founders can use customer calls, interviews, and distribution signals to find traction.",
+      "author": {"@type": "Organization", "name": "Founder Copilot"},
+      "publisher": {"@type": "Organization", "name": "Founder Copilot"}
+    }
+    </script>
+    <style>
+        :root {
+            --bg:     #030303;
+            --bg2:    #0D0D0E;
+            --bone:   #F8F6F0;
+            --dust:   #9C978D;
+            --lime:   #D4FF47;
+            --hot:    #FF4A22;
+            --violet: #9D6BFF;
+            --cyan:   #2EF2FF;
+            --dim:    rgba(168,162,154,0.1);
+            --serif:  'Instrument Serif', serif;
+            --sans:   'Inter', -apple-system, sans-serif;
+            --grid:   800px;
+            --gutter: 40px;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { color-scheme: dark; scroll-behavior: smooth; }
+        body {
+            background: var(--bg); color: var(--bone);
+            font-family: var(--sans); font-size: 18px; line-height: 1.6;
+            overflow-x: hidden; -webkit-font-smoothing: antialiased;
+        }
+        body::after {
+            content: ''; position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.04; mix-blend-mode: overlay; pointer-events: none; z-index: 9999;
+        }
+        .glow-orb { position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.12; z-index: 0; pointer-events: none; animation: breathe 8s infinite alternate ease-in-out; }
+        .glow-1 { top: -10vh; right: -10vw; width: 60vw; height: 60vh; background: var(--lime); }
+        .glow-2 { top: 60vh; left: -20vw; width: 50vw; height: 50vh; background: var(--violet); animation-delay: -4s; opacity: 0.08; }
+        @keyframes breathe { 0% { transform: scale(1); } 100% { transform: scale(1.2) translate(-20px,20px); } }
+        ::selection { background: var(--lime); color: var(--bg); }
+        *:focus-visible { outline: 2px solid var(--lime); outline-offset: 4px; }
+        .container { max-width: var(--grid); margin: 0 auto; padding: 0 var(--gutter); position: relative; z-index: 10; }
+        .mono { font-family: var(--sans); font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 0.1em; }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 20px var(--gutter);
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(3,3,3,0.7); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .logo { font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--bone); text-decoration: none; display: flex; align-items: center; gap: 12px; text-transform: uppercase; letter-spacing: 0.1em; }
+        .logo::before { content: ''; width: 12px; height: 12px; background: var(--lime); box-shadow: 0 0 10px var(--lime); flex-shrink: 0; }
+        .nav-r { display: flex; align-items: center; gap: 16px; }
+        .btn {
+            position: relative; display: inline-flex; align-items: center; justify-content: center;
+            font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.1em;
+            padding: 16px 32px; text-decoration: none; text-transform: uppercase;
+            background: var(--lime); color: var(--bg); border: none; cursor: pointer;
+            transition: background 0.3s, color 0.3s, transform 0.2s; overflow: hidden; z-index: 1;
+        }
+        .btn::before { content: ''; position: absolute; inset: 0; background: var(--bone); transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.85,0,0.15,1); z-index: -1; }
+        .btn:hover { color: var(--bg); transform: scale(1.02); }
+        .btn:hover::before { transform: translateY(0); }
+        .btn-ghost { background: transparent; color: var(--bone); border: 1px solid rgba(255,255,255,0.2); padding: 10px 22px; }
+        .btn-ghost::before { background: var(--bone); }
+        .btn-ghost:hover { color: var(--bg); border-color: transparent; }
+        /* Article layout */
+        .article-wrap { padding: 140px 0 100px; }
+        .breadcrumb { margin-bottom: 32px; }
+        .breadcrumb a { color: var(--dust); text-decoration: none; font-size: 13px; font-family: var(--sans); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 2px; transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--lime); }
+        .article-h1 { font-family: var(--serif); font-size: clamp(36px, 5vw, 58px); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 48px; }
+        /* Content styles */
+        .seo-content h2 { font-family: var(--serif); font-size: clamp(28px, 4vw, 40px); font-weight: 400; margin: 72px 0 20px; color: var(--bone); line-height: 1.15; letter-spacing: -0.01em; }
+        .seo-content h3 { font-family: var(--serif); font-size: clamp(22px, 3vw, 30px); font-weight: 400; margin: 52px 0 18px; color: var(--bone); line-height: 1.2; }
+        .seo-content p { font-size: 19px; line-height: 1.75; margin-bottom: 24px; color: rgba(248,246,240,0.85); max-width: 100%; }
+        .seo-content ul, .seo-content ol { margin: 0 0 32px 0; padding: 0; list-style: none; }
+        .seo-content li { position: relative; padding-left: 28px; margin-bottom: 14px; font-size: 19px; line-height: 1.65; color: rgba(248,246,240,0.85); }
+        .seo-content ul li::before { content: '→'; color: var(--lime); position: absolute; left: 0; font-weight: 600; }
+        .seo-content ol { counter-reset: ol-counter; }
+        .seo-content ol li { counter-increment: ol-counter; }
+        .seo-content ol li::before { content: counter(ol-counter) "."; color: var(--lime); position: absolute; left: 0; font-weight: 600; font-family: var(--sans); font-size: 15px; }
+        .seo-content strong { color: var(--bone); font-weight: 600; }
+        .seo-content em { font-style: italic; }
+        .seo-content a { color: var(--lime); text-decoration: none; border-bottom: 1px solid rgba(212,255,71,0.3); transition: all 0.2s; }
+        .seo-content a:hover { border-bottom-color: var(--lime); }
+        .seo-content code { background: rgba(255,255,255,0.06); padding: 2px 8px; border-radius: 3px; font-size: 0.9em; }
+        /* CTA box */
+        .cta-box { margin-top: 80px; padding: 48px 56px; border: 1px solid rgba(212,255,71,0.2); background: rgba(212,255,71,0.03); text-align: center; border-radius: 4px; }
+        .cta-box h3 { font-family: var(--serif); font-size: 32px; font-weight: 400; margin-bottom: 16px; }
+        .cta-box p { font-size: 18px; color: var(--dust); margin: 0 auto 32px; max-width: 480px; }
+        /* Footer */
+        footer { padding: 40px var(--gutter); display: flex; justify-content: space-between; align-items: center; font-family: var(--sans); font-weight: 600; font-size: 11px; color: var(--dust); text-transform: uppercase; letter-spacing: 0.1em; border-top: 1px solid rgba(255,255,255,0.05); background: var(--bg2); }
+        footer a { color: inherit; text-decoration: none; margin-left: 24px; }
+        /* Mobile */
+        @media (max-width: 768px) {
+            :root { --gutter: 20px; }
+            nav { padding: 16px var(--gutter); }
+            .article-wrap { padding: 100px 0 60px; }
+            .cta-box { padding: 32px 24px; }
+            footer { flex-direction: column; gap: 20px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<div class="glow-orb glow-1"></div>
+<div class="glow-orb glow-2"></div>
+
+<a href="#main" class="mono" style="position:absolute;top:-100px;left:0;background:var(--lime);color:var(--bg);padding:8px 16px;z-index:9999;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Skip to Content</a>
+
+<nav aria-label="Main navigation">
+    <a href="../" class="logo" aria-label="Founder Copilot homepage">Founder Copilot</a>
+    <div class="nav-r">
+        <a href="../#pricing" class="btn btn-ghost">Request access</a>
+    </div>
+</nav>
+
+<main id="main">
+    <article class="article-wrap">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../">Home</a>
+            </nav>
+            <h1 class="article-h1">Message-Market Fit: The Founder's 0→1 Operating System</h1>
+            <div class="seo-content">
+                <h3>What is message-market fit?</h3>
+                
+                <p>Message-market fit is the point where the way you describe your product reliably makes the right people pay attention, respond, and buy. It is not just having a good product; it is having a story about that product that actually lands in the market's language.</p>
+                
+                <p>Product-market fit asks "do people buy this once they understand it?"; message-market fit asks "what can we say that makes them care enough to listen in the first place?" When message-market fit is missing, even strong products stall because nobody quite "gets" them from the outside.</p>
+                
+                <h3>Why 0→1 often fails at the message layer</h3>
+                
+                <p>Most 0→1 playbooks tell founders to talk to users, build an MVP, and iterate toward product-market fit. In reality, many teams get stuck because their story never becomes specific enough for a real segment, so every new feature and experiment is built on top of fuzzy messaging.</p>
+                
+                <p>Calls and interviews may go well, but when the founder turns those insights into homepage copy, outbound, or posts, the language becomes abstract again. This leads to low reply rates, vague "not a priority right now" feedback, and campaigns that generate noise instead of qualified conversations.</p>
+                
+                <h3>Product-market fit vs message-market fit</h3>
+                
+                <p>Product-market fit (PMF) is about whether the product solves a problem that a segment will pay for and keep using. Message-market fit (MMF) is about whether the way you frame that problem and solution resonates with that segment in their own terms.</p>
+                
+                <p>You can have:</p>
+                <ul>
+                <li>good product, weak message → slow or no traction.</li>
+                <li>strong message, weak product → initial interest that quickly dies.</li>
+                <li>strong product and strong message → repeatable GTM, better lead quality, and easier sales.</li>
+                </ul>
+                
+                <p>Several SaaS positioning frameworks now explicitly treat message-market fit as a distinct stage between idea-market fit and full product-market fit because many teams get stuck at the message layer first.</p>
+                
+                <h3>The insight → message → execution → signal loop</h3>
+                
+                <p>A practical way to operationalize message-market fit is to treat it as a loop:</p>
+                
+                <ol>
+                <li><strong>Insight:</strong> Collect conversation data from sales calls, discovery interviews, support calls, and customer research.</li>
+                <li><strong>Message:</strong> Turn recurring pains, objections, and outcome phrases into sharp positioning and value propositions.</li>
+                <li><strong>Execution:</strong> Use those messages consistently across your homepage, outbound, founder content, and sales talk tracks.</li>
+                <li><strong>Signal:</strong> Watch who replies, books, and buys; track which messages correlate with higher-intent leads and better close rates.</li>
+                </ol>
+                
+                <p>Then feed those signals back into your insight step so the story keeps evolving with the market.</p>
+                
+                <h3>How founders can use calls to find better messaging</h3>
+                
+                <p>Call and transcript analysis has become a mainstream way to uncover customer language, especially in B2B SaaS. Best-practice guides recommend tagging transcripts for pains, objections, goals, and repeated phrases because those show up later as better copy, objection handling, and segment-specific angles.</p>
+                
+                <p>Founders are uniquely well placed here: they hear the raw phrasing and can connect it directly to strategy, pricing, and roadmap decisions. The gap is usually not insight, but turning that insight into a repeatable messaging and distribution system instead of one-off notes that die in docs.</p>
+                
+                <h3>Where Founder Copilot fits</h3>
+                
+                <p>Founder Copilot is being built to help founders run this exact loop faster: ingesting calls, extracting patterns, proposing candidate messages, and turning them into channel-native assets you can test. In other words, it operationalizes the message-market fit workflow around work you are already doing, rather than asking you to bolt on another generic AI writer.</p>
+                
+                <h3>FAQ</h3>
+                
+                <p><strong>Is message-market fit only for B2B SaaS?</strong></p>
+                <p>No. Any product that relies on clear positioning and repeatable GTM benefits from explicit message-market fit work, but B2B SaaS feels the pain earliest because buyers self-educate and see dozens of similar tools.</p>
+                
+                <p><strong>Do I need product-market fit before message-market fit?</strong></p>
+                <p>You need a real problem and some user pull, but in practice the two evolve together: better messaging gets you clearer signals about the product, which helps you refine the product.</p>
+                
+                <h3>Related Reading</h3>
+                
+                <ul>
+                <li><a href="../what-is-message-market-fit/">What Is Message-Market Fit?</a></li>
+                <li><a href="../product-market-fit-vs-message-market-fit/">Product-Market Fit vs Message-Market Fit</a></li>
+                <li><a href="../turn-customer-calls-into-messaging/">How to Turn Customer Calls Into Messaging</a></li>
+                <li><a href="../extract-voice-of-customer-from-sales-calls/">Extract Voice of Customer From Sales Calls</a></li>
+                <li><a href="../founder-led-distribution-system/">Founder-Led Distribution System</a></li>
+                <li><a href="../linkedin-posts-from-customer-calls/">LinkedIn Posts From Customer Calls</a></li>
+                <li><a href="../what-to-do-after-a-customer-call/">What to Do After a Customer Call</a></li>
+                <li><a href="../build-messaging-from-user-interviews/">Build Messaging From User Interviews</a></li>
+                <li><a href="../message-market-fit-sprint/">A 7-Day Message-Market Fit Sprint</a></li>
+                </ul>
+            </div>
+            <div class="cta-box">
+                <h3>Ready to turn calls into traction?</h3>
+                <p>Founder Copilot extracts the customer language from your calls and turns it into messaging, posts, and GTM tests you can actually execute.</p>
+                <a href="../#pricing" class="btn">Join the Waitlist_</a>
+            </div>
+        </div>
+    </article>
+</main>
+
+<footer>
+    <span style="max-width:400px;line-height:1.6;">Founder Copilot &mdash; Workflow-powered distribution for founders.</span>
+    <div>
+        <a href="../">Home</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+    </div>
+</footer>
+</body>
+</html>
