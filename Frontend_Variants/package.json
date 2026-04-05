@@ -1,0 +1,15 @@
+{
+  "name": "frontend_variants",
+  "version": "1.0.0",
+  "description": "Founder Copilot landing pages with Vercel Web Analytics",
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "test": "echo \"No tests specified\""
+  },
+  "keywords": ["analytics", "vercel", "landing-page"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
